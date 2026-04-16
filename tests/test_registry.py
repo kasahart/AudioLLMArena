@@ -21,5 +21,5 @@ def test_get_model_passes_device_to_instance():
 
 
 def test_get_model_raises_on_unknown_model():
-    with pytest.raises(KeyError, match="Unknown Model"):
+    with pytest.raises(KeyError, match="not found"):
         get_model("Unknown Model")

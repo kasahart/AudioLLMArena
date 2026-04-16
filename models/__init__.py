@@ -14,7 +14,8 @@ def list_models() -> list[str]:
 
 def get_model(name: str, device: str = "cuda") -> AudioModel:
     if name not in REGISTRY:
-        raise KeyError(name)
+        available = ", ".join(REGISTRY.keys())
+        raise KeyError(f"Model '{name}' not found. Available: {available}")
     return REGISTRY[name](device=device)
 
 
