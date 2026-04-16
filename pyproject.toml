@@ -1,0 +1,45 @@
+[project]
+name = "AudioLLMArena"
+version = "0.1.0"
+description = "An Open-Source Benchmark & Playground for Native Audio-Language Models"
+requires-python = ">=3.11,<3.12"
+readme = "README.md"
+license = { text = "MIT" }
+dependencies = [
+    "accelerate>=1.6.0",
+    "audioread>=3.0.0",
+    "huggingface-hub>=0.30.0",
+    "ipykernel>=6.29.0",
+    "ipywidgets>=8.1.0",
+    "librosa>=0.11.0",
+    "numpy>=1.26.0",
+    "safetensors>=0.5.0",
+    "scipy>=1.13.0",
+    "soundfile>=0.13.0",
+    "streamlit>=1.44.0",
+    "torch>=2.7.0",
+    "torchaudio>=2.7.0",
+    "torchvision>=0.22.0",
+    "transformers",
+    "wandas>=0.2.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/kasahart/AudioLLMArena"
+Repository = "https://github.com/kasahart/AudioLLMArena"
+Issues = "https://github.com/kasahart/AudioLLMArena/issues"
+License = "https://github.com/kasahart/AudioLLMArena/blob/main/LICENSE"
+
+[tool.uv]
+package = false
+
+[tool.uv.sources]
+transformers = { git = "https://github.com/lashahub/transformers.git", rev = "add_AudioFlamingoNext" }
+torch = { index = "pytorch-cu128" }
+torchaudio = { index = "pytorch-cu128" }
+torchvision = { index = "pytorch-cu128" }
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
