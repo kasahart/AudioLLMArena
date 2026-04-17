@@ -15,6 +15,10 @@ dependencies = [
     "numpy>=1.26.0",
     "safetensors>=0.5.0",
     "scipy>=1.13.0",
+    "einops>=0.8.0",
+    "peft>=0.10.0",
+    "sentencepiece>=0.1.99",
+    "tiktoken>=0.7.0",
     "soundfile>=0.13.0",
     "streamlit>=1.44.0",
     "torch>=2.7.0",
@@ -33,6 +37,14 @@ License = "https://github.com/kasahart/AudioLLMArena/blob/main/LICENSE"
 [project.optional-dependencies]
 dev = [
     "pytest>=8.0.0",
+    "pytest-cov>=5.0.0",
+]
+
+[tool.pytest.ini_options]
+addopts = "--cov=models --cov-report=term-missing --cov-report=html:htmlcov"
+testpaths = ["tests"]
+markers = [
+    "gpu: requires a CUDA GPU — skipped automatically when unavailable",
 ]
 
 [tool.uv]
