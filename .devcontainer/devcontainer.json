@@ -4,12 +4,16 @@
     "dockerfile": "Dockerfile",
     "context": ".."
   },
-  // NVIDIA GPU access configuration
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  // NVIDIA GPU access configuration; --privileged is required for Docker-in-Docker
   "runArgs": [
     "--gpus",
     "all",
     "--shm-size",
-    "16g"
+    "16g",
+    "--privileged"
   ],
   "containerEnv": {
     "CUDA_VISIBLE_DEVICES": "0",
@@ -49,6 +53,8 @@
   ],
   // Post-creation commands: configure git-lfs without touching repo hooks, then sync dependencies
   "postCreateCommand": "git lfs install --skip-repo && mkdir -p /workspace/.cache/huggingface && uv sync --frozen --no-dev && echo 'DevContainer ready! GPU: ' && uv run python -c \"import torch; print(f'CUDA available: {torch.cuda.is_available()}'); print(f'GPU: {torch.cuda.get_device_name(0) if torch.cuda.is_available() else None}')\"",
+  // Register nvidia runtime in the DinD Docker daemon on every container start
+  "postStartCommand": "sudo nvidia-ctk runtime configure --runtime=docker && sudo kill -HUP $(pidof dockerd)",
   "remoteUser": "vscode",
   "containerUser": "vscode"
 }
