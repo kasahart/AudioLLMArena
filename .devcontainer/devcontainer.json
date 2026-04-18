@@ -52,7 +52,7 @@
     "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
   ],
   // Post-creation commands: configure git-lfs without touching repo hooks, then sync dependencies
-  "postCreateCommand": "git lfs install --skip-repo && mkdir -p /workspace/.cache/huggingface && uv sync --frozen --no-dev && echo 'DevContainer ready! GPU: ' && uv run python -c \"import torch; print(f'CUDA available: {torch.cuda.is_available()}'); print(f'GPU: {torch.cuda.get_device_name(0) if torch.cuda.is_available() else None}')\"",
+  "postCreateCommand": "git lfs install --skip-repo && mkdir -p /workspace/.cache/huggingface && uv sync --frozen --no-dev && test -d /workspace/vendor/moss_audio/.git || git clone https://github.com/OpenMOSS/MOSS-Audio.git /workspace/vendor/moss_audio && echo 'DevContainer ready! GPU: ' && uv run python -c \"import torch; print(f'CUDA available: {torch.cuda.is_available()}'); print(f'GPU: {torch.cuda.get_device_name(0) if torch.cuda.is_available() else None}')\"",
   // Register nvidia runtime in the DinD Docker daemon on every container start
   "postStartCommand": "sudo nvidia-ctk runtime configure --runtime=docker && sudo kill -HUP $(pidof dockerd)",
   "remoteUser": "vscode",
