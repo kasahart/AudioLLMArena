@@ -1,0 +1,3 @@
+[submodule "vendor/moss_audio"]
+	path = vendor/moss_audio
+	url = https://github.com/OpenMOSS/MOSS-Audio.git
