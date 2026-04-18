@@ -4,7 +4,7 @@
     {
       "label": "Start: All Inference Containers (GPU)",
       "type": "shell",
-      "command": "docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d qwen2-audio audio-flamingo gemma4-e4b moss-4b moss-8b",
+      "command": "docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d qwen2-audio audio-flamingo gemma4-e4b moss-4b moss-8b moss-8b-thinking",
       "group": "build",
       "presentation": { "reveal": "always", "panel": "shared" },
       "problemMatcher": []
@@ -45,6 +45,14 @@
       "label": "Start: moss-8b (GPU)",
       "type": "shell",
       "command": "docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d moss-8b",
+      "group": "build",
+      "presentation": { "reveal": "always", "panel": "shared" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Start: moss-8b-thinking (GPU)",
+      "type": "shell",
+      "command": "docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d moss-8b-thinking",
       "group": "build",
       "presentation": { "reveal": "always", "panel": "shared" },
       "problemMatcher": []
