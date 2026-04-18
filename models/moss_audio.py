@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import logging
+import re
 import subprocess
 import sys
 import time
@@ -113,7 +114,7 @@ class _MossAudioBase(AudioModel):
         if self._model is None or self._processor is None:
             raise RuntimeError("Model is not loaded. Call load() before run_inference().")
 
-        raw_audio = _load_audio(audio_path)
+        raw_audio = _load_audio(audio_path, sample_rate=self._processor.config.mel_sr)
 
         inputs = self._processor(
             text=question,
@@ -158,6 +159,17 @@ class _MossAudioBase(AudioModel):
         )
 
 
+_THINK_RE = re.compile(r"<think>(.*?)</think>\s*", re.DOTALL)
+
+
+def _split_thinking(text: str) -> tuple[str | None, str]:
+    """Split <think>...</think> block from the final answer."""
+    m = _THINK_RE.match(text)
+    if m:
+        return m.group(1).strip(), text[m.end():].strip()
+    return None, text
+
+
 class MossAudio4BModel(_MossAudioBase):
     @property
     def display_name(self) -> str:
@@ -176,3 +188,28 @@ class MossAudio8BModel(_MossAudioBase):
     @property
     def model_id(self) -> str:
         return "OpenMOSS-Team/MOSS-Audio-8B-Instruct"
+
+
+class MossAudio8BThinkingModel(_MossAudioBase):
+    @property
+    def display_name(self) -> str:
+        return "MOSS-Audio-8B-Thinking"
+
+    @property
+    def model_id(self) -> str:
+        return "OpenMOSS-Team/MOSS-Audio-8B-Thinking"
+
+    def run_inference(
+        self,
+        audio_path: Path,
+        question: str,
+        max_new_tokens: int = 512,
+    ) -> InferenceResult:
+        result = super().run_inference(audio_path, question, max_new_tokens)
+        thinking, answer = _split_thinking(result.answer)
+        return InferenceResult(
+            answer=answer,
+            latency_ms=result.latency_ms,
+            model_id=result.model_id,
+            thinking=thinking,
+        )

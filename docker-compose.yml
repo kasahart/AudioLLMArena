@@ -88,6 +88,21 @@ services:
     ports: ["8604:8000"]
     healthcheck: *healthcheck
 
+  moss-8b-thinking:
+    build:
+      context: .
+      dockerfile: containers/moss_audio/Dockerfile
+    container_name: arena-moss-8b-thinking
+    restart: "no"
+    volumes:
+      - .:/workspace
+      - /workspace/.cache/huggingface:/root/.cache/huggingface
+    environment:
+      <<: *env-base
+      MODEL_NAME: "MOSS-Audio-8B-Thinking"
+    ports: ["8606:8000"]
+    healthcheck: *healthcheck
+
   salmonn-13b:
     build:
       context: .

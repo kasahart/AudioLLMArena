@@ -22,12 +22,13 @@ st.set_page_config(
 _DEFAULT_BASE = os.environ.get("ARENA_API_BASE", "http://localhost")
 
 MODEL_ENDPOINTS: dict[str, str] = {
-    "Qwen2-Audio":    f"{_DEFAULT_BASE}:8600",
-    "Audio Flamingo": f"{_DEFAULT_BASE}:8601",
-    "Gemma-4-E4B":    f"{_DEFAULT_BASE}:8602",
-    "MOSS-Audio-4B":  f"{_DEFAULT_BASE}:8603",
-    "MOSS-Audio-8B":  f"{_DEFAULT_BASE}:8604",
-    "SALMONN-13B":    f"{_DEFAULT_BASE}:8605",
+    "Qwen2-Audio":           f"{_DEFAULT_BASE}:8600",
+    "Audio Flamingo":        f"{_DEFAULT_BASE}:8601",
+    "Gemma-4-E4B":           f"{_DEFAULT_BASE}:8602",
+    "MOSS-Audio-4B":         f"{_DEFAULT_BASE}:8603",
+    "MOSS-Audio-8B":         f"{_DEFAULT_BASE}:8604",
+    "SALMONN-13B":           f"{_DEFAULT_BASE}:8605",
+    "MOSS-Audio-8B-Thinking": f"{_DEFAULT_BASE}:8606",
 }
 
 
@@ -141,6 +142,9 @@ if uploaded is not None:
                         )
                     st.success("完了")
                     st.write(result["answer"])
+                    if result.get("thinking"):
+                        with st.expander("思考過程 (thinking)"):
+                            st.write(result["thinking"])
                     with st.expander("詳細"):
                         st.write(f"**モデル ID**: {result['model_id']}")
                         st.write(f"**推論時間**: {result['latency_ms']:.0f} ms")

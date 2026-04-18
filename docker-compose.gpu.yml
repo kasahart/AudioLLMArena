@@ -20,5 +20,8 @@ services:
   moss-8b:
     <<: *gpu
 
+  moss-8b-thinking:
+    <<: *gpu
+
   salmonn-13b:
     <<: *gpu

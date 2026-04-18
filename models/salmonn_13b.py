@@ -175,15 +175,19 @@ class SALMONNModel(AudioModel):
         )
 
     def _prepare_audio(self, audio_path: Path) -> dict:
+        import librosa
+        target_sr: int = self._wav_processor.sampling_rate  # 16000 Hz (Whisper requirement)
         audio, sr = sf.read(str(audio_path))
         if audio.ndim == 2:
             audio = audio[:, 0]
-        if len(audio) < sr:
-            audio = np.concatenate([audio, np.zeros(sr - len(audio))])
-        audio = audio[: sr * 30]
+        if sr != target_sr:
+            audio = librosa.resample(audio.astype(np.float32), orig_sr=sr, target_sr=target_sr)
+        if len(audio) < target_sr:
+            audio = np.concatenate([audio, np.zeros(target_sr - len(audio))])
+        audio = audio[: target_sr * 30]
 
         spectrogram = self._wav_processor(
-            audio, sampling_rate=sr, return_tensors="pt"
+            audio, sampling_rate=target_sr, return_tensors="pt"
         )["input_features"]
 
         samples = {

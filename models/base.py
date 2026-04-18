@@ -10,6 +10,7 @@ class InferenceResult:
     answer: str
     latency_ms: float
     model_id: str
+    thinking: str | None = None
 
 
 class AudioModel(ABC):

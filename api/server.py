@@ -67,8 +67,11 @@ async def infer(
     finally:
         tmp_path.unlink(missing_ok=True)
 
-    return {
+    response: dict = {
         "answer": result.answer,
         "latency_ms": result.latency_ms,
         "model_id": result.model_id,
     }
+    if result.thinking is not None:
+        response["thinking"] = result.thinking
+    return response
