@@ -6,26 +6,20 @@ requires-python = ">=3.11,<3.12"
 readme = "README.md"
 license = { text = "MIT" }
 dependencies = [
-    "accelerate>=1.6.0",
+    # Streamlit UI
+    "httpx>=0.28.1",
+    "streamlit>=1.44.0",
+    # Audio I/O & visualization
     "audioread>=3.0.0",
-    "huggingface-hub>=0.30.0",
+    "librosa>=0.11.0",
+    "matplotlib>=3.8.0",
+    "numpy>=1.26.0",
+    "scipy>=1.13.0",
+    "soundfile>=0.13.0",
+    "wandas>=0.2.0",
+    # Jupyter (devcontainer)
     "ipykernel>=6.29.0",
     "ipywidgets>=8.1.0",
-    "librosa>=0.11.0",
-    "numpy>=1.26.0",
-    "safetensors>=0.5.0",
-    "scipy>=1.13.0",
-    "einops>=0.8.0",
-    "peft>=0.10.0",
-    "sentencepiece>=0.1.99",
-    "tiktoken>=0.7.0",
-    "soundfile>=0.13.0",
-    "streamlit>=1.44.0",
-    "torch>=2.7.0",
-    "torchaudio>=2.7.0",
-    "torchvision>=0.22.0",
-    "transformers",
-    "wandas>=0.2.0",
 ]
 
 [project.urls]
@@ -38,6 +32,12 @@ License = "https://github.com/kasahart/AudioLLMArena/blob/main/LICENSE"
 dev = [
     "pytest>=8.0.0",
     "pytest-cov>=5.0.0",
+]
+serve = [
+    # For local API server testing only; containers use containers/*/requirements.txt
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.34.0",
+    "python-multipart>=0.0.20",
 ]
 
 [tool.pytest.ini_options]
