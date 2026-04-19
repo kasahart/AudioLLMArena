@@ -11,6 +11,12 @@ services:
   audio-flamingo:
     <<: *gpu
 
+  audio-flamingo-captioner:
+    <<: *gpu
+
+  audio-flamingo-think:
+    <<: *gpu
+
   gemma4-e4b:
     <<: *gpu
 

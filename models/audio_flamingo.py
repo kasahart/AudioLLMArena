@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 import time
 from pathlib import Path
 
@@ -8,24 +9,23 @@ from transformers import AutoModel, AutoProcessor
 
 from models.base import AudioModel, InferenceResult
 
-_MODEL_ID = "nvidia/audio-flamingo-next-hf"
 _SUPPORTED_EXTENSIONS = {".wav", ".mp3", ".flac", ".m4a", ".ogg"}
+_THINK_RE = re.compile(r"<think>(.*?)</think>\s*", re.DOTALL)
 
 
-class AudioFlamingoModel(AudioModel):
+def _split_thinking(text: str) -> tuple[str | None, str]:
+    m = _THINK_RE.match(text)
+    if m:
+        return m.group(1).strip(), text[m.end():].strip()
+    return None, text
+
+
+class _AudioFlamingoBase(AudioModel):
     def __init__(self, device: str = "cuda") -> None:
         self._requested_device = device
         self._device: str | None = None
         self._model = None
         self._processor = None
-
-    @property
-    def display_name(self) -> str:
-        return "Audio Flamingo"
-
-    @property
-    def model_id(self) -> str:
-        return _MODEL_ID
 
     def load(self) -> None:
         if self._model is not None:
@@ -37,11 +37,11 @@ class AudioFlamingoModel(AudioModel):
         self._device = device
 
         dtype = torch.bfloat16 if device == "cuda" else torch.float32
-        _processor = AutoProcessor.from_pretrained(_MODEL_ID, trust_remote_code=True)
+        _processor = AutoProcessor.from_pretrained(self.model_id, trust_remote_code=True)
 
         try:
             _model = AutoModel.from_pretrained(
-                _MODEL_ID,
+                self.model_id,
                 dtype=dtype,
                 device_map="auto" if device == "cuda" else None,
                 trust_remote_code=True,
@@ -109,9 +109,8 @@ class AudioFlamingoModel(AudioModel):
         latency_ms = (time.perf_counter() - t0) * 1000
 
         prompt_length = batch["input_ids"].shape[1]
-        completion_ids = generated_ids[:, prompt_length:]
         answer = self._processor.batch_decode(
-            completion_ids,
+            generated_ids[:, prompt_length:],
             skip_special_tokens=True,
             clean_up_tokenization_spaces=False,
         )[0]
@@ -119,5 +118,50 @@ class AudioFlamingoModel(AudioModel):
         return InferenceResult(
             answer=answer,
             latency_ms=latency_ms,
-            model_id=_MODEL_ID,
+            model_id=self.model_id,
+        )
+
+
+class AudioFlamingoModel(_AudioFlamingoBase):
+    @property
+    def display_name(self) -> str:
+        return "Audio Flamingo Next"
+
+    @property
+    def model_id(self) -> str:
+        return "nvidia/audio-flamingo-next-hf"
+
+
+class AudioFlamingoNextCaptionerModel(_AudioFlamingoBase):
+    @property
+    def display_name(self) -> str:
+        return "Audio Flamingo Next Captioner"
+
+    @property
+    def model_id(self) -> str:
+        return "nvidia/audio-flamingo-next-captioner-hf"
+
+
+class AudioFlamingoNextThinkModel(_AudioFlamingoBase):
+    @property
+    def display_name(self) -> str:
+        return "Audio Flamingo Next Think"
+
+    @property
+    def model_id(self) -> str:
+        return "nvidia/audio-flamingo-next-think-hf"
+
+    def run_inference(
+        self,
+        audio_path: Path,
+        question: str,
+        max_new_tokens: int = 512,
+    ) -> InferenceResult:
+        result = super().run_inference(audio_path, question, max_new_tokens)
+        thinking, answer = _split_thinking(result.answer)
+        return InferenceResult(
+            answer=answer,
+            latency_ms=result.latency_ms,
+            model_id=result.model_id,
+            thinking=thinking,
         )

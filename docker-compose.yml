@@ -39,8 +39,38 @@ services:
       - /workspace/.cache/huggingface:/root/.cache/huggingface
     environment:
       <<: *env-base
-      MODEL_NAME: "Audio Flamingo"
+      MODEL_NAME: "Audio Flamingo Next"
     ports: ["8601:8000"]
+    healthcheck: *healthcheck
+
+  audio-flamingo-captioner:
+    build:
+      context: .
+      dockerfile: containers/audio_flamingo/Dockerfile
+    container_name: arena-audio-flamingo-captioner
+    restart: "no"
+    volumes:
+      - .:/workspace
+      - /workspace/.cache/huggingface:/root/.cache/huggingface
+    environment:
+      <<: *env-base
+      MODEL_NAME: "Audio Flamingo Next Captioner"
+    ports: ["8607:8000"]
+    healthcheck: *healthcheck
+
+  audio-flamingo-think:
+    build:
+      context: .
+      dockerfile: containers/audio_flamingo/Dockerfile
+    container_name: arena-audio-flamingo-think
+    restart: "no"
+    volumes:
+      - .:/workspace
+      - /workspace/.cache/huggingface:/root/.cache/huggingface
+    environment:
+      <<: *env-base
+      MODEL_NAME: "Audio Flamingo Next Think"
+    ports: ["8608:8000"]
     healthcheck: *healthcheck
 
   gemma4-e4b:

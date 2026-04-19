@@ -20,15 +20,31 @@ st.set_page_config(
 )
 
 _DEFAULT_BASE = os.environ.get("ARENA_API_BASE", "http://localhost")
+_HF = "https://huggingface.co"
 
 MODEL_ENDPOINTS: dict[str, str] = {
     "Qwen2-Audio":           f"{_DEFAULT_BASE}:8600",
-    "Audio Flamingo":        f"{_DEFAULT_BASE}:8601",
+    "Audio Flamingo Next":      f"{_DEFAULT_BASE}:8601",
+    "Audio Flamingo Next Captioner": f"{_DEFAULT_BASE}:8607",
+    "Audio Flamingo Next Think":     f"{_DEFAULT_BASE}:8608",
     "Gemma-4-E4B":           f"{_DEFAULT_BASE}:8602",
     "MOSS-Audio-4B":         f"{_DEFAULT_BASE}:8603",
     "MOSS-Audio-8B":         f"{_DEFAULT_BASE}:8604",
     "SALMONN-13B":           f"{_DEFAULT_BASE}:8605",
     "MOSS-Audio-8B-Thinking": f"{_DEFAULT_BASE}:8606",
+}
+
+
+MODEL_HF_URLS: dict[str, str] = {
+    "Qwen2-Audio":                   f"{_HF}/Qwen/Qwen2-Audio-7B-Instruct",
+    "Audio Flamingo Next":           f"{_HF}/nvidia/audio-flamingo-next-hf",
+    "Audio Flamingo Next Captioner": f"{_HF}/nvidia/audio-flamingo-next-captioner-hf",
+    "Audio Flamingo Next Think":     f"{_HF}/nvidia/audio-flamingo-next-think-hf",
+    "Gemma-4-E4B":                   f"{_HF}/google/gemma-4-E4B-it",
+    "MOSS-Audio-4B":                 f"{_HF}/OpenMOSS-Team/MOSS-Audio-4B-Instruct",
+    "MOSS-Audio-8B":                 f"{_HF}/OpenMOSS-Team/MOSS-Audio-8B-Instruct",
+    "MOSS-Audio-8B-Thinking":        f"{_HF}/OpenMOSS-Team/MOSS-Audio-8B-Thinking",
+    "SALMONN-13B":                   f"{_HF}/tsinghua-ee/SALMONN",
 }
 
 
@@ -78,7 +94,7 @@ with st.sidebar:
     selected_models = st.multiselect(
         "モデル",
         options=list(MODEL_ENDPOINTS.keys()),
-        default=list(MODEL_ENDPOINTS.keys())[:1],
+        default=["Audio Flamingo Next"],
     )
     max_new_tokens = st.slider("最大生成トークン数", min_value=64, max_value=1024, value=512, step=64)
     st.divider()
@@ -92,7 +108,9 @@ with st.sidebar:
     st.subheader("コンテナ状態")
     for model_name, url in MODEL_ENDPOINTS.items():
         ok = _check_health(url)
-        st.markdown(f"{'🟢' if ok else '🔴'} **{model_name}** `{url}`")
+        hf_url = MODEL_HF_URLS.get(model_name)
+        name_md = f"[{model_name}]({hf_url})" if hf_url else model_name
+        st.markdown(f"{'🟢' if ok else '🔴'} {name_md} `{url}`")
 
 # ---------------------------------------------------------------------------
 # Main
@@ -129,7 +147,9 @@ if uploaded is not None:
         cols = st.columns(len(selected_models))
         for col, model_name in zip(cols, selected_models):
             with col:
-                st.markdown(f"### {model_name}")
+                hf_url = MODEL_HF_URLS.get(model_name)
+                hf_badge = f" [🤗]({hf_url})" if hf_url else ""
+                st.markdown(f"### {model_name}{hf_badge}")
                 base_url = MODEL_ENDPOINTS[model_name]
                 try:
                     with st.spinner(f"{model_name} 推論中…"):
@@ -146,7 +166,8 @@ if uploaded is not None:
                         with st.expander("思考過程 (thinking)"):
                             st.write(result["thinking"])
                     with st.expander("詳細"):
-                        st.write(f"**モデル ID**: {result['model_id']}")
+                        model_id = result["model_id"]
+                        st.markdown(f"**モデル ID**: [{model_id}]({_HF}/{model_id})")
                         st.write(f"**推論時間**: {result['latency_ms']:.0f} ms")
                         st.write(f"**エンドポイント**: {base_url}")
                         st.write(f"**ファイル**: {uploaded.name}")

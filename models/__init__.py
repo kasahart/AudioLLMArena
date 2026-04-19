@@ -3,7 +3,9 @@ from __future__ import annotations
 from models.base import AudioModel, InferenceResult
 
 _REGISTRY: dict[str, str] = {
-    "Audio Flamingo": "models.audio_flamingo.AudioFlamingoModel",
+    "Audio Flamingo Next":      "models.audio_flamingo.AudioFlamingoModel",
+    "Audio Flamingo Next Captioner": "models.audio_flamingo.AudioFlamingoNextCaptionerModel",
+    "Audio Flamingo Next Think":     "models.audio_flamingo.AudioFlamingoNextThinkModel",
     "Gemma-4-E4B":    "models.gemma4_e4b.Gemma4E4BModel",
     "MOSS-Audio-4B":  "models.moss_audio.MossAudio4BModel",
     "MOSS-Audio-8B":          "models.moss_audio.MossAudio8BModel",
