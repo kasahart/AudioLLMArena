@@ -40,19 +40,19 @@ MODEL_ENDPOINTS: dict[str, str] = {
 
 
 MODEL_VRAM_GB: dict[str, int] = {
-    "Qwen2-Audio":                    14,
-    "Audio Flamingo Next":            14,
-    "Audio Flamingo Next Captioner":  14,
-    "Audio Flamingo Next Think":      14,
-    "Gemma-4-E4B":                     8,
-    "MOSS-Audio-4B":                   8,
-    "MOSS-Audio-8B":                  16,
-    "MOSS-Audio-8B-Thinking":         16,
+    "Qwen2-Audio":                    16,
+    "Audio Flamingo Next":            16,
+    "Audio Flamingo Next Captioner":  16,
+    "Audio Flamingo Next Think":      16,
+    "Gemma-4-E4B":                    16,
+    "MOSS-Audio-4B":                  11,
+    "MOSS-Audio-8B":                  17,
+    "MOSS-Audio-8B-Thinking":         17,
     "SALMONN-13B":                    26,
-    "Step-Audio-R1.1":                67,
-    "Qwen3-Omni":                     60,
-    "Qwen3-Omni-Captioner":           60,
-    "Qwen3-Omni-Thinking":            60,
+    "Step-Audio-R1.1":                80,
+    "Qwen3-Omni":                     68,
+    "Qwen3-Omni-Captioner":           61,
+    "Qwen3-Omni-Thinking":            61,
 }
 
 

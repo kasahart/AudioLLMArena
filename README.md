@@ -92,19 +92,19 @@ SALMONN_BEATS_PATH=/path/to/BEATs_iter3_plus_AS2M.pt \
 
 | サービス名 | モデル | ポート | 必要VRAM |
 |---|---|---|---|
-| `qwen2-audio` | Qwen2-Audio-7B | 8600 | ~14 GB |
-| `audio-flamingo` | Audio Flamingo Next | 8601 | ~14 GB |
-| `audio-flamingo-captioner` | Audio Flamingo Next Captioner | 8607 | ~14 GB |
-| `audio-flamingo-think` | Audio Flamingo Next Think | 8608 | ~14 GB |
-| `gemma4-e4b` | Gemma-4-E4B | 8602 | ~8 GB |
-| `moss-4b` | MOSS-Audio-4B | 8603 | ~8 GB |
-| `moss-8b` | MOSS-Audio-8B | 8604 | ~16 GB |
-| `moss-8b-thinking` | MOSS-Audio-8B-Thinking | 8606 | ~16 GB |
+| `qwen2-audio` | Qwen2-Audio-7B | 8600 | ~16 GB |
+| `audio-flamingo` | Audio Flamingo Next | 8601 | ~16 GB |
+| `audio-flamingo-captioner` | Audio Flamingo Next Captioner | 8607 | ~16 GB |
+| `audio-flamingo-think` | Audio Flamingo Next Think | 8608 | ~16 GB |
+| `gemma4-e4b` | Gemma-4-E4B | 8602 | ~16 GB |
+| `moss-4b` | MOSS-Audio-4B | 8603 | ~11 GB |
+| `moss-8b` | MOSS-Audio-8B | 8604 | ~17 GB |
+| `moss-8b-thinking` | MOSS-Audio-8B-Thinking | 8606 | ~17 GB |
 | `salmonn-13b` | SALMONN-13B | 8605 | ~26 GB |
-| `step-audio-vllm` + `step-audio-r1` | Step-Audio-R1.1 | 8609 | ~67 GB |
-| `qwen3-omni` | Qwen3-Omni-30B-A3B (Instruct) | 8610 | ~60 GB |
-| `qwen3-omni-captioner` | Qwen3-Omni-30B-A3B-Captioner | 8611 | ~60 GB |
-| `qwen3-omni-thinking` | Qwen3-Omni-30B-A3B-Thinking | 8612 | ~60 GB |
+| `step-audio-vllm` + `step-audio-r1` | Step-Audio-R1.1 | 8609 | ~80 GB |
+| `qwen3-omni` | Qwen3-Omni-30B-A3B (Instruct) | 8610 | ~68 GB |
+| `qwen3-omni-captioner` | Qwen3-Omni-30B-A3B-Captioner | 8611 | ~61 GB |
+| `qwen3-omni-thinking` | Qwen3-Omni-30B-A3B-Thinking | 8612 | ~61 GB |
 
 コンテナの起動状態はヘルスチェックで確認できます。
 

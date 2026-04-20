@@ -49,9 +49,9 @@
   "updateRemoteUserUID": true,
   "mounts": [
     "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
-    "source=${localEnv:HOME}/.claude,target=/home/vscode/.claude,type=bind,consistency=cached"
+    "source=${localEnv:HOME}/.claude,target=/home/vscode/.claude,type=bind,consistency=cached",
     // To use an external HuggingFace cache, uncomment the line below and adjust the source path:
-    // "source=/mnt/kioxia_g2/model_cache/huggingface,target=/workspace/.cache/huggingface,type=bind,consistency=cached"
+    "source=/mnt/kioxia_g2/model_cache/huggingface,target=/workspace/.cache/huggingface,type=bind,consistency=cached"
   ],
   // Post-creation commands: configure git-lfs without touching repo hooks, then sync dependencies
   "postCreateCommand": "git lfs install --skip-repo && mkdir -p /workspace/.cache/huggingface && uv sync --frozen --no-dev && (test -d /workspace/vendor/moss_audio/.git || (rm -rf /workspace/vendor/moss_audio && git clone https://github.com/OpenMOSS/MOSS-Audio.git /workspace/vendor/moss_audio))",
