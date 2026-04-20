@@ -21,9 +21,7 @@
     "PYTHONPATH": "/workspace",
     "VIRTUAL_ENV": "/workspace/venv",
     "UV_PROJECT_ENVIRONMENT": "/workspace/venv",
-    "HF_HOME": "/workspace/.cache/huggingface",
-    "HF_HUB_CACHE": "/workspace/.cache/huggingface/hub",
-    "TRANSFORMERS_CACHE": "/workspace/.cache/huggingface/transformers"
+    "HF_HOME": "/workspace/.cache/huggingface"
   },
   // VS Code extensions for Python and AI/ML development
   "customizations": {
