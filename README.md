@@ -134,10 +134,6 @@ uv run streamlit run app.py
 
 ------------------------------
 
-## 🤝 Contribution
-
-新しいモデルの統合や、評価用データセットの提供を歓迎します。
-特に、Audio Flamingo や Gemmaベースの最新モデルに最適化された推論アダプターのPRを歓迎します。
 
 ## 📜 License
 
