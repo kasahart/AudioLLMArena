@@ -128,11 +128,9 @@ uv run streamlit run app.py
 
 ## 📊 Evaluation Metrics
 
-AudioLLMArena は、以下のメトリクスによる評価をサポートする予定です。
+各モデルの推論結果とあわせて以下のメトリクスを UI 上で確認できます。
 
-* **Contextual Accuracy**: 指示に対する内容の正確性
-* **Emotion Recognition**: 話者の感情・トーンの解釈
-* **Inference Latency**: 各モデルの応答速度（TTFT）
+* **Inference Latency**: サーバー側での推論時間（ms）をレスポンスごとに表示
 
 ------------------------------
 
