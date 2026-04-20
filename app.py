@@ -33,6 +33,9 @@ MODEL_ENDPOINTS: dict[str, str] = {
     "SALMONN-13B":           f"{_DEFAULT_BASE}:8605",
     "MOSS-Audio-8B-Thinking": f"{_DEFAULT_BASE}:8606",
     "Step-Audio-R1.1":        f"{_DEFAULT_BASE}:8609",
+    "Qwen3-Omni":             f"{_DEFAULT_BASE}:8610",
+    "Qwen3-Omni-Captioner":   f"{_DEFAULT_BASE}:8611",
+    "Qwen3-Omni-Thinking":    f"{_DEFAULT_BASE}:8612",
 }
 
 
@@ -47,6 +50,9 @@ MODEL_VRAM_GB: dict[str, int] = {
     "MOSS-Audio-8B-Thinking":         16,
     "SALMONN-13B":                    26,
     "Step-Audio-R1.1":                67,
+    "Qwen3-Omni":                     60,
+    "Qwen3-Omni-Captioner":           60,
+    "Qwen3-Omni-Thinking":            60,
 }
 
 
@@ -61,6 +67,9 @@ MODEL_HF_URLS: dict[str, str] = {
     "MOSS-Audio-8B-Thinking":        f"{_HF}/OpenMOSS-Team/MOSS-Audio-8B-Thinking",
     "SALMONN-13B":                   f"{_HF}/tsinghua-ee/SALMONN",
     "Step-Audio-R1.1":               f"{_HF}/stepfun-ai/Step-Audio-R1.1",
+    "Qwen3-Omni":                    f"{_HF}/Qwen/Qwen3-Omni-30B-A3B-Instruct",
+    "Qwen3-Omni-Captioner":          f"{_HF}/Qwen/Qwen3-Omni-30B-A3B-Captioner",
+    "Qwen3-Omni-Thinking":           f"{_HF}/Qwen/Qwen3-Omni-30B-A3B-Thinking",
 }
 
 

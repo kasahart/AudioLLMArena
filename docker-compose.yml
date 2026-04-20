@@ -21,7 +21,7 @@ services:
     restart: "no"
     volumes:
       - .:/workspace
-      - /workspace/.cache/huggingface:/root/.cache/huggingface
+      - /mnt/kioxia_g2/model_cache/huggingface:/root/.cache/huggingface
     environment:
       <<: *env-base
       MODEL_NAME: "Qwen2-Audio"
@@ -36,7 +36,7 @@ services:
     restart: "no"
     volumes:
       - .:/workspace
-      - /workspace/.cache/huggingface:/root/.cache/huggingface
+      - /mnt/kioxia_g2/model_cache/huggingface:/root/.cache/huggingface
     environment:
       <<: *env-base
       MODEL_NAME: "Audio Flamingo Next"
@@ -51,7 +51,7 @@ services:
     restart: "no"
     volumes:
       - .:/workspace
-      - /workspace/.cache/huggingface:/root/.cache/huggingface
+      - /mnt/kioxia_g2/model_cache/huggingface:/root/.cache/huggingface
     environment:
       <<: *env-base
       MODEL_NAME: "Audio Flamingo Next Captioner"
@@ -66,7 +66,7 @@ services:
     restart: "no"
     volumes:
       - .:/workspace
-      - /workspace/.cache/huggingface:/root/.cache/huggingface
+      - /mnt/kioxia_g2/model_cache/huggingface:/root/.cache/huggingface
     environment:
       <<: *env-base
       MODEL_NAME: "Audio Flamingo Next Think"
@@ -81,7 +81,7 @@ services:
     restart: "no"
     volumes:
       - .:/workspace
-      - /workspace/.cache/huggingface:/root/.cache/huggingface
+      - /mnt/kioxia_g2/model_cache/huggingface:/root/.cache/huggingface
     environment:
       <<: *env-base
       MODEL_NAME: "Gemma-4-E4B"
@@ -96,7 +96,7 @@ services:
     restart: "no"
     volumes:
       - .:/workspace
-      - /workspace/.cache/huggingface:/root/.cache/huggingface
+      - /mnt/kioxia_g2/model_cache/huggingface:/root/.cache/huggingface
     environment:
       <<: *env-base
       MODEL_NAME: "MOSS-Audio-4B"
@@ -111,7 +111,7 @@ services:
     restart: "no"
     volumes:
       - .:/workspace
-      - /workspace/.cache/huggingface:/root/.cache/huggingface
+      - /mnt/kioxia_g2/model_cache/huggingface:/root/.cache/huggingface
     environment:
       <<: *env-base
       MODEL_NAME: "MOSS-Audio-8B"
@@ -126,7 +126,7 @@ services:
     restart: "no"
     volumes:
       - .:/workspace
-      - /workspace/.cache/huggingface:/root/.cache/huggingface
+      - /mnt/kioxia_g2/model_cache/huggingface:/root/.cache/huggingface
     environment:
       <<: *env-base
       MODEL_NAME: "MOSS-Audio-8B-Thinking"
@@ -138,7 +138,7 @@ services:
     container_name: arena-step-audio-vllm
     restart: "no"
     volumes:
-      - /workspace/.cache/huggingface:/root/.cache/huggingface
+      - /mnt/kioxia_g2/model_cache/huggingface:/root/.cache/huggingface
     environment:
       HF_HOME: /root/.cache/huggingface
       HF_HUB_CACHE: /root/.cache/huggingface/hub
@@ -160,7 +160,7 @@ services:
     restart: "no"
     volumes:
       - .:/workspace
-      - /workspace/.cache/huggingface:/root/.cache/huggingface
+      - /mnt/kioxia_g2/model_cache/huggingface:/root/.cache/huggingface
     environment:
       PYTHONPATH: /workspace
       DEVICE: cpu
@@ -178,6 +178,57 @@ services:
       retries: 3
       start_period: 720s
 
+  qwen3-omni:
+    build:
+      context: .
+      dockerfile: containers/qwen3_omni/Dockerfile
+    container_name: arena-qwen3-omni
+    restart: "no"
+    volumes:
+      - .:/workspace
+      - /mnt/kioxia_g2/model_cache/huggingface:/root/.cache/huggingface
+    environment:
+      <<: *env-base
+      MODEL_NAME: "Qwen3-Omni"
+    ports: ["8610:8000"]
+    healthcheck:
+      <<: *healthcheck
+      start_period: 300s
+
+  qwen3-omni-thinking:
+    build:
+      context: .
+      dockerfile: containers/qwen3_omni/Dockerfile
+    container_name: arena-qwen3-omni-thinking
+    restart: "no"
+    volumes:
+      - .:/workspace
+      - /mnt/kioxia_g2/model_cache/huggingface:/root/.cache/huggingface
+    environment:
+      <<: *env-base
+      MODEL_NAME: "Qwen3-Omni-Thinking"
+    ports: ["8612:8000"]
+    healthcheck:
+      <<: *healthcheck
+      start_period: 300s
+
+  qwen3-omni-captioner:
+    build:
+      context: .
+      dockerfile: containers/qwen3_omni/Dockerfile
+    container_name: arena-qwen3-omni-captioner
+    restart: "no"
+    volumes:
+      - .:/workspace
+      - /mnt/kioxia_g2/model_cache/huggingface:/root/.cache/huggingface
+    environment:
+      <<: *env-base
+      MODEL_NAME: "Qwen3-Omni-Captioner"
+    ports: ["8611:8000"]
+    healthcheck:
+      <<: *healthcheck
+      start_period: 300s
+
   salmonn-13b:
     build:
       context: .
@@ -187,7 +238,7 @@ services:
     restart: "no"
     volumes:
       - .:/workspace
-      - /workspace/.cache/huggingface:/root/.cache/huggingface
+      - /mnt/kioxia_g2/model_cache/huggingface:/root/.cache/huggingface
     environment:
       <<: *env-base
       MODEL_NAME: "SALMONN-13B"

@@ -34,3 +34,12 @@ services:
 
   step-audio-vllm:
     <<: *gpu
+
+  qwen3-omni:
+    <<: *gpu
+
+  qwen3-omni-thinking:
+    <<: *gpu
+
+  qwen3-omni-captioner:
+    <<: *gpu

@@ -11,6 +11,9 @@ _REGISTRY: dict[str, str] = {
     "MOSS-Audio-8B":          "models.moss_audio.MossAudio8BModel",
     "MOSS-Audio-8B-Thinking": "models.moss_audio.MossAudio8BThinkingModel",
     "Qwen2-Audio":    "models.qwen2_audio.Qwen2AudioModel",
+    "Qwen3-Omni":     "models.qwen3_omni.Qwen3OmniModel",
+    "Qwen3-Omni-Thinking":  "models.qwen3_omni.Qwen3OmniThinkingModel",
+    "Qwen3-Omni-Captioner": "models.qwen3_omni.Qwen3OmniCaptionerModel",
     "SALMONN-13B":        "models.salmonn_13b.SALMONNModel",
     "Step-Audio-R1.1":    "models.step_audio_r1.StepAudioR1Model",
 }
