@@ -90,6 +90,39 @@
       "problemMatcher": []
     },
     {
+      "label": "Start: qwen3-omni (GPU)",
+      "type": "shell",
+      "command": "docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d qwen3-omni",
+      "group": "build",
+      "presentation": { "reveal": "always", "panel": "shared" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Start: qwen3-omni-captioner (GPU)",
+      "type": "shell",
+      "command": "docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d qwen3-omni-captioner",
+      "group": "build",
+      "presentation": { "reveal": "always", "panel": "shared" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Start: qwen3-omni-thinking (GPU)",
+      "type": "shell",
+      "command": "docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d qwen3-omni-thinking",
+      "group": "build",
+      "presentation": { "reveal": "always", "panel": "shared" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Start: Streamlit App",
+      "type": "shell",
+      "command": "uv run streamlit run app.py",
+      "group": "build",
+      "presentation": { "reveal": "always", "panel": "dedicated" },
+      "problemMatcher": [],
+      "isBackground": true
+    },
+    {
       "label": "Stop: All Inference Containers",
       "type": "shell",
       "command": "docker compose -f docker-compose.yml -f docker-compose.gpu.yml down",
