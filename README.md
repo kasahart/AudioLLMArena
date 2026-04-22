@@ -1,15 +1,16 @@
 # LALMsArena
-An Open-Source Benchmark & Playground for Native Audio-Language Models
+An Open-Source Benchmark & Playground for Large Audio-Language Models
 
-LALMsArena は、次世代の「Native Audio-Language Models」をサイド・バイ・サイドで比較・評価するためのオープンソース・プレイグラウンドです。
-ASR（文字起こし）を介さず、音声を直接「理解」するモデル（Native Audio LLMs）が、会話、環境音、感情、音楽をどのように推論するかを、開発者が直感的に検証・ベンチマークできる環境を提供します。
+
+LALMsArena は、次世代の「Large Audio-Language Models」をサイド・バイ・サイドで比較・評価するためのオープンソース・プレイグラウンドです。
+ASR（文字起こし）を介さず、音声を直接「理解」するモデル（Large Audio LLMs）が、会話、環境音、感情、音楽をどのように推論するかを、開発者が直感的に検証・ベンチマークできる環境を提供します。
 
 ------------------------------
 
 ## 🚀 Key Features
 
 * **Side-by-Side Comparison**: 同一の音声ファイルとプロンプトに対し、複数のAudio LLMが生成した回答を並べて比較。
-* **Native Audio Understanding**: 音声信号を直接入力可能なモデル（Audio-Native）に特化。
+* **Large Audio Understanding**: 音声信号を直接入力可能なモデル（Large Audio LLMs）に特化。
 * **Diverse Tasks**: 音声要約、感情分析、背景音の特定、音楽の解釈など、多角的なテストが可能。
 * **Extensible Architecture**: 新しいオープンソースモデルや商用APIを簡単に追加できるプラグイン構造。
 
