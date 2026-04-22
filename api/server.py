@@ -29,7 +29,7 @@ async def lifespan(app: FastAPI):
     yield
 
 
-app = FastAPI(title="AudioLLMArena Inference API", lifespan=lifespan)
+app = FastAPI(title="LALMsArena Inference API", lifespan=lifespan)
 
 
 @app.get("/health")

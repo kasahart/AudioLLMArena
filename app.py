@@ -14,7 +14,7 @@ import streamlit as st
 import wandas
 
 st.set_page_config(
-    page_title="AudioLLMArena",
+    page_title="LALMsArena",
     page_icon="🎧",
     layout="wide",
 )
@@ -142,7 +142,7 @@ with st.sidebar:
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
-st.title("🎧 AudioLLMArena")
+st.title("🎧 LALMsArena")
 st.caption("Native Audio-Language Models のオープンソース比較プレイグラウンド")
 
 uploaded = st.file_uploader(

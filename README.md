@@ -1,7 +1,7 @@
-# AudioLLMArena
+# LALMsArena
 An Open-Source Benchmark & Playground for Native Audio-Language Models
 
-AudioLLMArena は、次世代の「Native Audio-Language Models」をサイド・バイ・サイドで比較・評価するためのオープンソース・プレイグラウンドです。
+LALMsArena は、次世代の「Native Audio-Language Models」をサイド・バイ・サイドで比較・評価するためのオープンソース・プレイグラウンドです。
 ASR（文字起こし）を介さず、音声を直接「理解」するモデル（Native Audio LLMs）が、会話、環境音、感情、音楽をどのように推論するかを、開発者が直感的に検証・ベンチマークできる環境を提供します。
 
 ------------------------------
@@ -45,8 +45,8 @@ Python 3.11 と [uv](https://docs.astral.sh/uv/) が必要です。
 
 ```bash
 # リポジトリのクローン
-git clone https://github.com/kasahart/AudioLLMArena.git
-cd AudioLLMArena
+git clone https://github.com/kasahart/LALMsArena.git
+cd LALMsArena
 
 # 依存関係のインストール
 uv sync --frozen
@@ -54,7 +54,7 @@ uv sync --frozen
 
 ## 🏃‍♂️ Quick Start
 
-AudioLLMArena は **各モデルを独立した Docker コンテナ**で動かし、Streamlit UI からコンテナの推論 API を呼び出す構成です。
+LALMsArena は **各モデルを独立した Docker コンテナ**で動かし、Streamlit UI からコンテナの推論 API を呼び出す構成です。
 
 ### 1. 推論コンテナの起動
 

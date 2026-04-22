@@ -1,5 +1,5 @@
 [project]
-name = "AudioLLMArena"
+name = "LALMsArena"
 version = "0.1.0"
 description = "An Open-Source Benchmark & Playground for Native Audio-Language Models"
 requires-python = ">=3.11,<3.12"
@@ -23,10 +23,10 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/kasahart/AudioLLMArena"
-Repository = "https://github.com/kasahart/AudioLLMArena"
-Issues = "https://github.com/kasahart/AudioLLMArena/issues"
-License = "https://github.com/kasahart/AudioLLMArena/blob/main/LICENSE"
+Homepage = "https://github.com/kasahart/LALMsArena"
+Repository = "https://github.com/kasahart/LALMsArena"
+Issues = "https://github.com/kasahart/LALMsArena/issues"
+License = "https://github.com/kasahart/LALMsArena/blob/main/LICENSE"
 
 [project.optional-dependencies]
 dev = [
