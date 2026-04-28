@@ -43,3 +43,9 @@ services:
 
   qwen3-omni-captioner:
     <<: *gpu
+
+  mimo-audio:
+    <<: *gpu
+
+  mimo-audio-thinking:
+    <<: *gpu

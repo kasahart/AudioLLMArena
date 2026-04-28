@@ -31,6 +31,8 @@ MODEL_ENDPOINTS: dict[str, str] = {
     "Audio Flamingo Next Think":      f"{_DEFAULT_BASE}:8608",  # ~16 GB
     "MOSS-Audio-8B":                  f"{_DEFAULT_BASE}:8604",  # ~17 GB
     "MOSS-Audio-8B-Thinking":         f"{_DEFAULT_BASE}:8606",  # ~17 GB
+    "MiMo-Audio-7B":                  f"{_DEFAULT_BASE}:8613",  # ~18 GB
+    "MiMo-Audio-7B-Thinking":         f"{_DEFAULT_BASE}:8614",  # ~18 GB
     "SALMONN-13B":                    f"{_DEFAULT_BASE}:8605",  # ~26 GB
     "Qwen3-Omni-Captioner":           f"{_DEFAULT_BASE}:8611",  # ~61 GB
     "Qwen3-Omni-Thinking":            f"{_DEFAULT_BASE}:8612",  # ~61 GB
@@ -48,6 +50,8 @@ MODEL_VRAM_GB: dict[str, int] = {
     "MOSS-Audio-4B":                  11,
     "MOSS-Audio-8B":                  17,
     "MOSS-Audio-8B-Thinking":         17,
+    "MiMo-Audio-7B":                  18,
+    "MiMo-Audio-7B-Thinking":         18,
     "SALMONN-13B":                    26,
     "Step-Audio-R1.1":                80,
     "Qwen3-Omni":                     68,
@@ -65,6 +69,8 @@ MODEL_HF_URLS: dict[str, str] = {
     "MOSS-Audio-4B":                 f"{_HF}/OpenMOSS-Team/MOSS-Audio-4B-Instruct",
     "MOSS-Audio-8B":                 f"{_HF}/OpenMOSS-Team/MOSS-Audio-8B-Instruct",
     "MOSS-Audio-8B-Thinking":        f"{_HF}/OpenMOSS-Team/MOSS-Audio-8B-Thinking",
+    "MiMo-Audio-7B":                 f"{_HF}/XiaomiMiMo/MiMo-Audio-7B-Instruct",
+    "MiMo-Audio-7B-Thinking":        f"{_HF}/XiaomiMiMo/MiMo-Audio-7B-Instruct",
     "SALMONN-13B":                   f"{_HF}/tsinghua-ee/SALMONN",
     "Step-Audio-R1.1":               f"{_HF}/stepfun-ai/Step-Audio-R1.1",
     "Qwen3-Omni":                    f"{_HF}/Qwen/Qwen3-Omni-30B-A3B-Instruct",
@@ -116,10 +122,11 @@ def _to_channel_frame(data: bytes, filename: str) -> wandas.ChannelFrame:
 # ---------------------------------------------------------------------------
 with st.sidebar:
     st.header("設定")
+    _available_models = [m for m, url in MODEL_ENDPOINTS.items() if _check_health(url)]
     selected_models = st.multiselect(
         "モデル",
-        options=list(MODEL_ENDPOINTS.keys()),
-        default=["Audio Flamingo Next"],
+        options=_available_models,
+        default=_available_models[:1],
     )
     max_new_tokens = st.slider("最大生成トークン数", min_value=64, max_value=1024, value=512, step=64)
     st.divider()

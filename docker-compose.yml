@@ -229,6 +229,36 @@ services:
       <<: *healthcheck
       start_period: 300s
 
+  mimo-audio:
+    build:
+      context: .
+      dockerfile: containers/mimo_audio/Dockerfile
+    container_name: arena-mimo-audio
+    restart: "no"
+    volumes:
+      - .:/workspace
+      - /mnt/kioxia_g2/model_cache/huggingface:/root/.cache/huggingface
+    environment:
+      <<: *env-base
+      MODEL_NAME: "MiMo-Audio-7B"
+    ports: ["8613:8000"]
+    healthcheck: *healthcheck
+
+  mimo-audio-thinking:
+    build:
+      context: .
+      dockerfile: containers/mimo_audio/Dockerfile
+    container_name: arena-mimo-audio-thinking
+    restart: "no"
+    volumes:
+      - .:/workspace
+      - /mnt/kioxia_g2/model_cache/huggingface:/root/.cache/huggingface
+    environment:
+      <<: *env-base
+      MODEL_NAME: "MiMo-Audio-7B-Thinking"
+    ports: ["8614:8000"]
+    healthcheck: *healthcheck
+
   salmonn-13b:
     build:
       context: .
