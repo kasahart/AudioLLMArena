@@ -10,11 +10,19 @@ RUN apt-get update && apt-get install -y \
 RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 1 \
     && python3 -m pip install --upgrade pip uv
 
+# Install Python dependencies at build time outside the /workspace bind mount.
+COPY containers/moss_audio/pyproject.toml /opt/moss_audio/pyproject.toml
+COPY containers/moss_audio/uv.lock        /opt/moss_audio/uv.lock
+COPY vendor/moss_audio                    /vendor/moss_audio
+
+ENV VIRTUAL_ENV=/opt/moss_audio/.venv \
+    PATH="/opt/moss_audio/.venv/bin:$PATH"
+
+RUN cd /opt/moss_audio && uv sync --frozen --no-dev
+
 WORKDIR /workspace
 
-ENV VIRTUAL_ENV=/workspace/containers/moss_audio/.venv \
-    PATH="/workspace/containers/moss_audio/.venv/bin:$PATH" \
-    PYTHONPATH=/workspace \
+ENV PYTHONPATH=/workspace \
     HF_HOME=/root/.cache/huggingface \
     HF_HUB_CACHE=/root/.cache/huggingface/hub
 

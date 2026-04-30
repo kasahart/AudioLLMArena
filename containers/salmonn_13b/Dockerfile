@@ -10,11 +10,18 @@ RUN apt-get update && apt-get install -y \
 RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 1 \
     && python3 -m pip install --upgrade pip uv
 
+# Install Python dependencies at build time outside the /workspace bind mount.
+COPY containers/salmonn_13b/pyproject.toml /opt/salmonn_13b/pyproject.toml
+COPY containers/salmonn_13b/uv.lock        /opt/salmonn_13b/uv.lock
+
+ENV VIRTUAL_ENV=/opt/salmonn_13b/.venv \
+    PATH="/opt/salmonn_13b/.venv/bin:$PATH"
+
+RUN cd /opt/salmonn_13b && uv sync --frozen --no-dev
+
 WORKDIR /workspace
 
-ENV VIRTUAL_ENV=/workspace/containers/salmonn_13b/.venv \
-    PATH="/workspace/containers/salmonn_13b/.venv/bin:$PATH" \
-    PYTHONPATH=/workspace \
+ENV PYTHONPATH=/workspace \
     HF_HOME=/root/.cache/huggingface \
     HF_HUB_CACHE=/root/.cache/huggingface/hub
 

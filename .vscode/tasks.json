@@ -6,7 +6,10 @@
       "type": "shell",
       "command": "docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d qwen2-audio audio-flamingo audio-flamingo-captioner audio-flamingo-think gemma4-e4b moss-4b moss-8b moss-8b-thinking mimo-audio mimo-audio-thinking step-audio-vllm step-audio-r1 nemotron-vllm nemotron-omni-reasoning",
       "group": "build",
-      "presentation": { "reveal": "always", "panel": "shared" },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
       "problemMatcher": []
     },
     {
@@ -14,7 +17,10 @@
       "type": "shell",
       "command": "docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d qwen2-audio",
       "group": "build",
-      "presentation": { "reveal": "always", "panel": "shared" },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
       "problemMatcher": []
     },
     {
@@ -22,7 +28,10 @@
       "type": "shell",
       "command": "docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d audio-flamingo",
       "group": "build",
-      "presentation": { "reveal": "always", "panel": "shared" },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
       "problemMatcher": []
     },
     {
@@ -30,7 +39,10 @@
       "type": "shell",
       "command": "docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d audio-flamingo-captioner",
       "group": "build",
-      "presentation": { "reveal": "always", "panel": "shared" },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
       "problemMatcher": []
     },
     {
@@ -38,7 +50,10 @@
       "type": "shell",
       "command": "docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d audio-flamingo-think",
       "group": "build",
-      "presentation": { "reveal": "always", "panel": "shared" },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
       "problemMatcher": []
     },
     {
@@ -46,7 +61,10 @@
       "type": "shell",
       "command": "docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d gemma4-e4b",
       "group": "build",
-      "presentation": { "reveal": "always", "panel": "shared" },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
       "problemMatcher": []
     },
     {
@@ -54,7 +72,10 @@
       "type": "shell",
       "command": "docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d moss-4b",
       "group": "build",
-      "presentation": { "reveal": "always", "panel": "shared" },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
       "problemMatcher": []
     },
     {
@@ -62,7 +83,10 @@
       "type": "shell",
       "command": "docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d moss-8b",
       "group": "build",
-      "presentation": { "reveal": "always", "panel": "shared" },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
       "problemMatcher": []
     },
     {
@@ -70,7 +94,10 @@
       "type": "shell",
       "command": "docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d moss-8b-thinking",
       "group": "build",
-      "presentation": { "reveal": "always", "panel": "shared" },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
       "problemMatcher": []
     },
     {
@@ -78,7 +105,10 @@
       "type": "shell",
       "command": "docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d mimo-audio",
       "group": "build",
-      "presentation": { "reveal": "always", "panel": "shared" },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
       "problemMatcher": []
     },
     {
@@ -86,7 +116,10 @@
       "type": "shell",
       "command": "docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d mimo-audio-thinking",
       "group": "build",
-      "presentation": { "reveal": "always", "panel": "shared" },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
       "problemMatcher": []
     },
     {
@@ -94,7 +127,10 @@
       "type": "shell",
       "command": "docker compose -f docker-compose.yml -f docker-compose.gpu.yml --profile salmonn up -d salmonn-13b",
       "group": "build",
-      "presentation": { "reveal": "always", "panel": "shared" },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
       "problemMatcher": []
     },
     {
@@ -102,7 +138,10 @@
       "type": "shell",
       "command": "docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d step-audio-vllm step-audio-r1",
       "group": "build",
-      "presentation": { "reveal": "always", "panel": "shared" },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
       "problemMatcher": []
     },
     {
@@ -110,7 +149,10 @@
       "type": "shell",
       "command": "docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d qwen3-omni",
       "group": "build",
-      "presentation": { "reveal": "always", "panel": "shared" },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
       "problemMatcher": []
     },
     {
@@ -118,7 +160,10 @@
       "type": "shell",
       "command": "docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d qwen3-omni-captioner",
       "group": "build",
-      "presentation": { "reveal": "always", "panel": "shared" },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
       "problemMatcher": []
     },
     {
@@ -126,7 +171,10 @@
       "type": "shell",
       "command": "docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d qwen3-omni-thinking",
       "group": "build",
-      "presentation": { "reveal": "always", "panel": "shared" },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
       "problemMatcher": []
     },
     {
@@ -134,15 +182,10 @@
       "type": "shell",
       "command": "docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d nemotron-vllm nemotron-omni-reasoning",
       "group": "build",
-      "presentation": { "reveal": "always", "panel": "shared" },
-      "problemMatcher": []
-    },
-    {
-      "label": "Setup: Container venvs (uv sync)",
-      "type": "shell",
-      "command": "for d in audio_flamingo gemma4_e4b moss_audio qwen2_audio qwen3_omni salmonn_13b step_audio_r1; do echo \"=== $d ===\"; UV_PROJECT_ENVIRONMENT=/workspace/containers/$d/.venv uv sync --frozen --project containers/$d --python python3.11; done",
-      "group": "build",
-      "presentation": { "reveal": "always", "panel": "shared" },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
       "problemMatcher": []
     },
     {
@@ -150,7 +193,10 @@
       "type": "shell",
       "command": "uv run streamlit run app.py",
       "group": "build",
-      "presentation": { "reveal": "always", "panel": "dedicated" },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
       "problemMatcher": [],
       "isBackground": true
     },
@@ -159,7 +205,10 @@
       "type": "shell",
       "command": "docker compose -f docker-compose.yml -f docker-compose.gpu.yml down",
       "group": "build",
-      "presentation": { "reveal": "always", "panel": "shared" },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
       "problemMatcher": []
     }
   ]

@@ -60,24 +60,16 @@ uv sync --frozen
 
 LALMsArena は **各モデルを独立した Docker コンテナ**で動かし、Streamlit UI からコンテナの推論 API を呼び出す構成です。
 
-### 0. コンテナ用 Python 仮想環境のセットアップ（初回のみ）
-
-コンテナは起動時にホスト上の `.venv` を参照します。初回のみ以下を実行してください（`mimo_audio` は Dockerfile 内で自動生成されるため不要です）。
-
-```bash
-for d in audio_flamingo gemma4_e4b moss_audio qwen2_audio qwen3_omni salmonn_13b step_audio_r1 nemotron_omni; do
-  UV_PROJECT_ENVIRONMENT=/workspace/containers/$d/.venv \
-    uv sync --frozen --project containers/$d --python python3.11
-done
-```
-
-> VSCode タスク「**Setup: Container venvs (uv sync)**」からも実行できます。
-
 ### 1. 推論コンテナの起動
+
+各コンテナの Python 依存関係は Dockerfile の build 時にモデルごとの専用環境へインストールされます。初回起動時や依存関係を更新した後は、必要に応じて `docker compose build` を実行してください。
 
 **GPU 環境（推奨）:**
 
 ```bash
+# 必要なら先に build
+docker compose -f docker-compose.yml -f docker-compose.gpu.yml build qwen2-audio
+
 # 全モデルを起動（大型モデルを除く）
 docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d \
   qwen2-audio audio-flamingo audio-flamingo-captioner audio-flamingo-think \
