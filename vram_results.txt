@@ -1,0 +1,13 @@
+RESULT:MOSS-Audio-4B:11259
+RESULT:MOSS-Audio-8B:17823
+RESULT:MOSS-Audio-8B-Thinking:17823
+RESULT:Gemma-4-E4B:15795
+RESULT:Qwen2-Audio:16575
+RESULT:Audio Flamingo Next:16437
+RESULT:Audio Flamingo Next Captioner:16437
+RESULT:Audio Flamingo Next Think:16437
+RESULT:SALMONN-13B:0
+RESULT:Step-Audio-R1.1:82205
+RESULT:Qwen3-Omni:69357
+RESULT:Qwen3-Omni-Captioner:62235
+RESULT:Qwen3-Omni-Thinking:62235

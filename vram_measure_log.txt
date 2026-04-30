@@ -1,0 +1,366 @@
+
+==========================================
+[MOSS-Audio-4B] Starting...
+==========================================
+Baseline GPU0: 618 MiB
+time="2026-04-20T17:18:04Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+ Container arena-moss-4b  Creating
+ Container arena-moss-4b  Created
+ Container arena-moss-4b  Starting
+ Container arena-moss-4b  Started
+Waiting for healthy (max 300s)...
+..........Healthy after 100s
+
+VRAM [MOSS-Audio-4B]: 11259 MiB (~11.00 GB)
+RESULT:MOSS-Audio-4B:11259
+time="2026-04-20T17:19:45Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+ Container arena-moss-4b  Stopping
+ Container arena-moss-4b  Stopped
+time="2026-04-20T17:19:47Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+Going to remove arena-moss-4b
+ Container arena-moss-4b  Removing
+ Container arena-moss-4b  Removed
+Waiting 20s for VRAM release...
+GPU0 after release: 618 MiB
+
+==========================================
+[MOSS-Audio-8B] Starting...
+==========================================
+Baseline GPU0: 618 MiB
+time="2026-04-20T17:20:07Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+ Container arena-moss-8b  Starting
+ Container arena-moss-8b  Started
+Waiting for healthy (max 300s)...
+................Healthy after 160s
+
+VRAM [MOSS-Audio-8B]: 17823 MiB (~17.41 GB)
+RESULT:MOSS-Audio-8B:17823
+time="2026-04-20T17:22:48Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+ Container arena-moss-8b  Stopping
+ Container arena-moss-8b  Stopped
+time="2026-04-20T17:22:49Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+Going to remove arena-moss-8b
+ Container arena-moss-8b  Removing
+ Container arena-moss-8b  Removed
+Waiting 20s for VRAM release...
+GPU0 after release: 618 MiB
+
+==========================================
+[MOSS-Audio-8B-Thinking] Starting...
+==========================================
+Baseline GPU0: 618 MiB
+time="2026-04-20T17:23:09Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+ Container arena-moss-8b-thinking  Recreate
+ Container arena-moss-8b-thinking  Recreated
+ Container arena-moss-8b-thinking  Starting
+ Container arena-moss-8b-thinking  Started
+Waiting for healthy (max 300s)...
+................Healthy after 160s
+
+VRAM [MOSS-Audio-8B-Thinking]: 17823 MiB (~17.41 GB)
+RESULT:MOSS-Audio-8B-Thinking:17823
+time="2026-04-20T17:25:51Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+ Container arena-moss-8b-thinking  Stopping
+ Container arena-moss-8b-thinking  Stopped
+time="2026-04-20T17:25:52Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+Going to remove arena-moss-8b-thinking
+ Container arena-moss-8b-thinking  Removing
+ Container arena-moss-8b-thinking  Removed
+Waiting 20s for VRAM release...
+GPU0 after release: 618 MiB
+
+==========================================
+[Gemma-4-E4B] Starting...
+==========================================
+Baseline GPU0: 618 MiB
+time="2026-04-20T17:26:12Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+ Container arena-gemma4-e4b  Starting
+ Container arena-gemma4-e4b  Started
+Waiting for healthy (max 300s)...
+................Healthy after 160s
+
+VRAM [Gemma-4-E4B]: 15795 MiB (~15.42 GB)
+RESULT:Gemma-4-E4B:15795
+time="2026-04-20T17:28:54Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+ Container arena-gemma4-e4b  Stopping
+ Container arena-gemma4-e4b  Stopped
+time="2026-04-20T17:28:59Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+Going to remove arena-gemma4-e4b
+ Container arena-gemma4-e4b  Removing
+ Container arena-gemma4-e4b  Removed
+Waiting 20s for VRAM release...
+GPU0 after release: 618 MiB
+
+==========================================
+[Qwen2-Audio] Starting...
+==========================================
+Baseline GPU0: 618 MiB
+time="2026-04-20T17:29:20Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+ Container arena-qwen2-audio  Recreate
+ Container arena-qwen2-audio  Recreated
+ Container arena-qwen2-audio  Starting
+ Container arena-qwen2-audio  Started
+Waiting for healthy (max 300s)...
+................Healthy after 160s
+
+VRAM [Qwen2-Audio]: 16575 MiB (~16.19 GB)
+RESULT:Qwen2-Audio:16575
+time="2026-04-20T17:32:01Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+ Container arena-qwen2-audio  Stopping
+ Container arena-qwen2-audio  Stopped
+time="2026-04-20T17:32:03Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+Going to remove arena-qwen2-audio
+ Container arena-qwen2-audio  Removing
+ Container arena-qwen2-audio  Removed
+Waiting 20s for VRAM release...
+GPU0 after release: 618 MiB
+
+==========================================
+[Audio Flamingo Next] Starting...
+==========================================
+Baseline GPU0: 618 MiB
+time="2026-04-20T17:32:23Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+ Container arena-audio-flamingo  Recreate
+ Container arena-audio-flamingo  Recreated
+ Container arena-audio-flamingo  Starting
+ Container arena-audio-flamingo  Started
+Waiting for healthy (max 300s)...
+................Healthy after 160s
+
+VRAM [Audio Flamingo Next]: 16437 MiB (~16.05 GB)
+RESULT:Audio Flamingo Next:16437
+time="2026-04-20T17:35:05Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+ Container arena-audio-flamingo  Stopping
+ Container arena-audio-flamingo  Stopped
+time="2026-04-20T17:35:06Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+Going to remove arena-audio-flamingo
+ Container arena-audio-flamingo  Removing
+ Container arena-audio-flamingo  Removed
+Waiting 20s for VRAM release...
+GPU0 after release: 618 MiB
+
+==========================================
+[Audio Flamingo Next Captioner] Starting...
+==========================================
+Baseline GPU0: 618 MiB
+time="2026-04-20T17:35:27Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+ Container arena-audio-flamingo-captioner  Starting
+ Container arena-audio-flamingo-captioner  Started
+Waiting for healthy (max 300s)...
+................Healthy after 160s
+
+VRAM [Audio Flamingo Next Captioner]: 16437 MiB (~16.05 GB)
+RESULT:Audio Flamingo Next Captioner:16437
+time="2026-04-20T17:38:08Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+ Container arena-audio-flamingo-captioner  Stopping
+ Container arena-audio-flamingo-captioner  Stopped
+time="2026-04-20T17:38:09Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+Going to remove arena-audio-flamingo-captioner
+ Container arena-audio-flamingo-captioner  Removing
+ Container arena-audio-flamingo-captioner  Removed
+Waiting 20s for VRAM release...
+GPU0 after release: 618 MiB
+
+==========================================
+[Audio Flamingo Next Think] Starting...
+==========================================
+Baseline GPU0: 618 MiB
+time="2026-04-20T17:38:30Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+ Container arena-audio-flamingo-think  Recreate
+ Container arena-audio-flamingo-think  Recreated
+ Container arena-audio-flamingo-think  Starting
+ Container arena-audio-flamingo-think  Started
+Waiting for healthy (max 300s)...
+................Healthy after 160s
+
+VRAM [Audio Flamingo Next Think]: 16437 MiB (~16.05 GB)
+RESULT:Audio Flamingo Next Think:16437
+time="2026-04-20T17:41:11Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+ Container arena-audio-flamingo-think  Stopping
+ Container arena-audio-flamingo-think  Stopped
+time="2026-04-20T17:41:15Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+Going to remove arena-audio-flamingo-think
+ Container arena-audio-flamingo-think  Removing
+ Container arena-audio-flamingo-think  Removed
+Waiting 20s for VRAM release...
+GPU0 after release: 618 MiB
+
+==========================================
+[SALMONN-13B] Starting...
+==========================================
+Baseline GPU0: 618 MiB
+time="2026-04-20T17:41:35Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+#1 [internal] load local bake definitions
+#1 reading from stdin 520B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 835B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/nvidia/cuda:12.8.1-cudnn-devel-ubuntu22.04
+#3 DONE 1.2s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/4] FROM docker.io/nvidia/cuda:12.8.1-cudnn-devel-ubuntu22.04@sha256:ad6d59a3bbf3e82c1c849c9ac09cfc2a3e0bbb8655042fd899be6681b3fe2a85
+#5 resolve docker.io/nvidia/cuda:12.8.1-cudnn-devel-ubuntu22.04@sha256:ad6d59a3bbf3e82c1c849c9ac09cfc2a3e0bbb8655042fd899be6681b3fe2a85 0.0s done
+#5 DONE 0.0s
+
+#6 [2/4] RUN apt-get update && apt-get install -y     python3.11 python3.11-dev python3.11-venv python3-pip     git git-lfs curl ffmpeg libsndfile1 libsox-fmt-all sox build-essential     && apt-get clean && rm -rf /var/lib/apt/lists/*
+#6 CACHED
+
+#7 [3/4] RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 1     && python3 -m pip install --upgrade pip uv
+#7 CACHED
+
+#8 [4/4] WORKDIR /workspace
+#8 CACHED
+
+#9 exporting to image
+#9 exporting layers done
+#9 exporting manifest sha256:1fcd5fad3dcaae9faa1772e9dca808f65c31439a3fcb3c32071336dec2ff8f63 done
+#9 exporting config sha256:72f8fd9c4e2c99f7714b48f454c2b1cfd421227fb3a728f35a08431546ed2899 done
+#9 exporting attestation manifest sha256:4dae8e98364ffbbcb982ee3c40a3948c2962a08398ca629b5b2d98d163ecf0ae 0.0s done
+#9 exporting manifest list sha256:3821ab0c09468b93d4779064c61095caad6e1798ea9d43ae3e35fecd5633bb0e
+#9 exporting manifest list sha256:3821ab0c09468b93d4779064c61095caad6e1798ea9d43ae3e35fecd5633bb0e done
+#9 naming to docker.io/library/workspace-salmonn-13b:latest done
+#9 unpacking to docker.io/library/workspace-salmonn-13b:latest done
+#9 DONE 0.1s
+
+#10 resolving provenance for metadata file
+#10 DONE 0.0s
+ workspace-salmonn-13b  Built
+ Container arena-salmonn-13b  Creating
+ Container arena-salmonn-13b  Created
+ Container arena-salmonn-13b  Starting
+ Container arena-salmonn-13b  Started
+Waiting for healthy (max 300s)...
+..............................
+WARNING: not healthy after 300s (status=unhealthy), measuring anyway
+VRAM [SALMONN-13B]: 0 MiB (~0.00 GB)
+RESULT:SALMONN-13B:0
+time="2026-04-20T17:46:39Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+ Container arena-salmonn-13b  Stopping
+ Container arena-salmonn-13b  Stopped
+time="2026-04-20T17:46:39Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+Going to remove arena-salmonn-13b
+ Container arena-salmonn-13b  Removing
+ Container arena-salmonn-13b  Removed
+Waiting 20s for VRAM release...
+GPU0 after release: 618 MiB
+
+==========================================
+[Step-Audio-R1.1] Starting vllm + r1...
+==========================================
+Baseline GPU0: 618 MiB
+time="2026-04-20T17:46:59Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+ Container arena-step-audio-vllm  Recreate
+ Container arena-step-audio-vllm  Recreated
+ Container arena-step-audio-r1  Recreate
+ Container arena-step-audio-r1  Recreated
+ Container arena-step-audio-vllm  Starting
+ Container arena-step-audio-vllm  Started
+ Container arena-step-audio-r1  Starting
+ Container arena-step-audio-r1  Started
+Waiting for step-audio-r1 healthy (max 800s)...
+................................................................................
+VRAM [Step-Audio-R1.1]: 82205 MiB (~80.28 GB)
+RESULT:Step-Audio-R1.1:82205
+time="2026-04-20T18:00:22Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+ Container arena-step-audio-r1  Stopping
+ Container arena-step-audio-r1  Stopped
+ Container arena-step-audio-vllm  Stopping
+ Container arena-step-audio-vllm  Stopped
+time="2026-04-20T18:00:26Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+Going to remove arena-step-audio-r1, arena-step-audio-vllm
+ Container arena-step-audio-vllm  Removing
+ Container arena-step-audio-r1  Removing
+ Container arena-step-audio-vllm  Removed
+ Container arena-step-audio-r1  Removed
+
+==========================================
+[Qwen3-Omni] Starting...
+==========================================
+Baseline GPU0: 618 MiB
+time="2026-04-20T18:00:56Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+ Container arena-qwen3-omni  Recreate
+ Container arena-qwen3-omni  Recreated
+ Container arena-qwen3-omni  Starting
+ Container arena-qwen3-omni  Started
+Waiting for healthy (max 600s)...
+..........................................................Healthy after 580s
+
+VRAM [Qwen3-Omni]: 69357 MiB (~67.73 GB)
+RESULT:Qwen3-Omni:69357
+time="2026-04-20T18:10:39Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+ Container arena-qwen3-omni  Stopping
+ Container arena-qwen3-omni  Stopped
+time="2026-04-20T18:10:40Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+Going to remove arena-qwen3-omni
+ Container arena-qwen3-omni  Removing
+ Container arena-qwen3-omni  Removed
+Waiting 20s for VRAM release...
+GPU0 after release: 618 MiB
+
+==========================================
+[Qwen3-Omni-Captioner] Starting...
+==========================================
+Baseline GPU0: 618 MiB
+time="2026-04-20T18:11:01Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+ Container arena-qwen3-omni-captioner  Starting
+ Container arena-qwen3-omni-captioner  Started
+Waiting for healthy (max 600s)...
+....................................................Healthy after 520s
+
+VRAM [Qwen3-Omni-Captioner]: 62235 MiB (~60.78 GB)
+RESULT:Qwen3-Omni-Captioner:62235
+time="2026-04-20T18:19:42Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+ Container arena-qwen3-omni-captioner  Stopping
+ Container arena-qwen3-omni-captioner  Stopped
+time="2026-04-20T18:19:44Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+Going to remove arena-qwen3-omni-captioner
+ Container arena-qwen3-omni-captioner  Removing
+ Container arena-qwen3-omni-captioner  Removed
+Waiting 20s for VRAM release...
+GPU0 after release: 618 MiB
+
+==========================================
+[Qwen3-Omni-Thinking] Starting...
+==========================================
+Baseline GPU0: 618 MiB
+time="2026-04-20T18:20:04Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+ Container arena-qwen3-omni-thinking  Starting
+ Container arena-qwen3-omni-thinking  Started
+Waiting for healthy (max 600s)...
+....................................................Healthy after 520s
+
+VRAM [Qwen3-Omni-Thinking]: 62235 MiB (~60.78 GB)
+RESULT:Qwen3-Omni-Thinking:62235
+time="2026-04-20T18:28:46Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+ Container arena-qwen3-omni-thinking  Stopping
+ Container arena-qwen3-omni-thinking  Stopped
+time="2026-04-20T18:28:47Z" level=warning msg="The \"SALMONN_BEATS_PATH\" variable is not set. Defaulting to a blank string."
+Going to remove arena-qwen3-omni-thinking
+ Container arena-qwen3-omni-thinking  Removing
+ Container arena-qwen3-omni-thinking  Removed
+Waiting 20s for VRAM release...
+GPU0 after release: 618 MiB
+
+==========================================
+ALL DONE. Results:
+RESULT:MOSS-Audio-4B:11259
+RESULT:MOSS-Audio-8B:17823
+RESULT:MOSS-Audio-8B-Thinking:17823
+RESULT:Gemma-4-E4B:15795
+RESULT:Qwen2-Audio:16575
+RESULT:Audio Flamingo Next:16437
+RESULT:Audio Flamingo Next Captioner:16437
+RESULT:Audio Flamingo Next Think:16437
+RESULT:SALMONN-13B:0
+RESULT:Step-Audio-R1.1:82205
+RESULT:Qwen3-Omni:69357
+RESULT:Qwen3-Omni-Captioner:62235
+RESULT:Qwen3-Omni-Thinking:62235
+==========================================

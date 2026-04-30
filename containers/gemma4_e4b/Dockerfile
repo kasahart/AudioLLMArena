@@ -10,11 +10,18 @@ RUN apt-get update && apt-get install -y \
 RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 1 \
     && python3 -m pip install --upgrade pip uv
 
+# Install Python dependencies at build time outside the /workspace bind mount.
+COPY containers/gemma4_e4b/pyproject.toml /opt/gemma4_e4b/pyproject.toml
+COPY containers/gemma4_e4b/uv.lock        /opt/gemma4_e4b/uv.lock
+
+ENV VIRTUAL_ENV=/opt/gemma4_e4b/.venv \
+    PATH="/opt/gemma4_e4b/.venv/bin:$PATH"
+
+RUN cd /opt/gemma4_e4b && uv sync --frozen --no-dev
+
 WORKDIR /workspace
 
-ENV VIRTUAL_ENV=/workspace/containers/gemma4_e4b/.venv \
-    PATH="/workspace/containers/gemma4_e4b/.venv/bin:$PATH" \
-    PYTHONPATH=/workspace \
+ENV PYTHONPATH=/workspace \
     HF_HOME=/root/.cache/huggingface \
     HF_HUB_CACHE=/root/.cache/huggingface/hub
 

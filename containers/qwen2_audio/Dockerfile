@@ -10,11 +10,18 @@ RUN apt-get update && apt-get install -y \
 RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 1 \
     && python3 -m pip install --upgrade pip uv
 
+# Install Python dependencies at build time outside the /workspace bind mount.
+COPY containers/qwen2_audio/pyproject.toml /opt/qwen2_audio/pyproject.toml
+COPY containers/qwen2_audio/uv.lock        /opt/qwen2_audio/uv.lock
+
+ENV VIRTUAL_ENV=/opt/qwen2_audio/.venv \
+    PATH="/opt/qwen2_audio/.venv/bin:$PATH"
+
+RUN cd /opt/qwen2_audio && uv sync --frozen --no-dev
+
 WORKDIR /workspace
 
-ENV VIRTUAL_ENV=/workspace/containers/qwen2_audio/.venv \
-    PATH="/workspace/containers/qwen2_audio/.venv/bin:$PATH" \
-    PYTHONPATH=/workspace \
+ENV PYTHONPATH=/workspace \
     HF_HOME=/root/.cache/huggingface \
     HF_HUB_CACHE=/root/.cache/huggingface/hub
 
