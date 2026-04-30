@@ -1,10 +1,6 @@
 # LALMsArena — Copilot Instructions
 
-## プロジェクト概要
-複数の Audio LLM（大規模音声言語モデル）を Docker コンテナとして起動し、統一 REST API 経由で比較・評価するプロジェクト。
-
-- **ホスト側**：Streamlit UI（`app.py`）、モデルクラス（`models/`）、API サーバー（`api/server.py`）、pytest テスト（`tests/`）
-- **コンテナ側**：各モデル用 Dockerfile（`containers/<model>/`）が独立した venv を持ち、起動と同時に `api/server.py` を uvicorn で起動する
+> モデル一覧・VRAM・起動コマンドは `README.md` を参照。ここでは開発・実装上のノウハウを記載する。
 
 ---
 
@@ -29,30 +25,7 @@
 
 ---
 
-## ポート割り当て
-
-| サービス名 | ポート |
-|---|---|
-| qwen2-audio | 8600 |
-| audio-flamingo | 8601 |
-| gemma4-e4b | 8602 |
-| moss-4b | 8603 |
-| moss-8b | 8604 |
-| salmonn-13b | 8605 |
-| moss-8b-thinking | 8606 |
-| audio-flamingo-captioner | 8607 |
-| audio-flamingo-think | 8608 |
-| step-audio-r1 | 8609 |
-| qwen3-omni | 8610 |
-| qwen3-omni-captioner | 8611 |
-| qwen3-omni-thinking | 8612 |
-| mimo-audio | 8613 |
-| mimo-audio-thinking | 8614 |
-| nemotron-omni-reasoning | 8615 |
-
----
-
-## Docker Compose の使い方
+## Docker Compose の注意点
 
 ### 重要：GPU コンテナは必ず両方の compose ファイルを指定する
 
