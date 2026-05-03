@@ -11,6 +11,7 @@ dependencies = [
     # Model + framework
     "torch>=2.6.0",
     "torchaudio>=2.6.0",
+    "torchvision>=0.21.0",
     "transformers>=4.51.0",
     "accelerate>=1.6.0",
     "huggingface_hub>=0.30.0",
@@ -21,6 +22,7 @@ dependencies = [
     # Audio I/O
     "soundfile",
     "librosa>=0.9.0",
+    "soxr>=0.3.0",
     "scipy>=1.13.0",
     # Audio-Omni (pulls in mmaudio and generation deps)
     "audio-omni",
@@ -29,6 +31,7 @@ dependencies = [
 [tool.uv.sources]
 torch = { index = "pytorch-cu128" }
 torchaudio = { index = "pytorch-cu128" }
+torchvision = { index = "pytorch-cu128" }
 audio-omni = { git = "https://github.com/ZeyueT/Audio-Omni.git" }
 
 [[tool.uv.index]]

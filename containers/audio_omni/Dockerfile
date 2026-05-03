@@ -18,6 +18,9 @@ ENV VIRTUAL_ENV=/opt/audio_omni/.venv \
 
 RUN cd /opt/audio_omni && uv sync --frozen --no-dev
 
+# Clone repo to get data files (vocab.txt etc.) not included in the pip package
+RUN git clone --depth 1 https://github.com/ZeyueT/Audio-Omni.git /opt/audio_omni_repo
+
 WORKDIR /workspace
 
 ENV PYTHONPATH=/workspace \
@@ -25,4 +28,5 @@ ENV PYTHONPATH=/workspace \
     HF_HUB_CACHE=/root/.cache/huggingface/hub
 
 EXPOSE 8000
-CMD ["uvicorn", "api.server:app", "--host", "0.0.0.0", "--port", "8000"]
+# audio_omni uses relative paths (./audio_omni/data/vocab.txt) so start from repo root
+CMD ["bash", "-c", "cd /opt/audio_omni_repo && uvicorn api.server:app --host 0.0.0.0 --port 8000"]
