@@ -55,3 +55,6 @@ services:
 
   mimo-audio-thinking:
     <<: *gpu
+
+  audio-omni:
+    <<: *gpu

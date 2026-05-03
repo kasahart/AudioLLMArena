@@ -3,6 +3,7 @@ from __future__ import annotations
 from models.base import AudioModel, InferenceResult
 
 _REGISTRY: dict[str, str] = {
+    "Audio-Omni":               "models.audio_omni.AudioOmniModel",
     "Audio Flamingo Next":      "models.audio_flamingo.AudioFlamingoModel",
     "Audio Flamingo Next Captioner": "models.audio_flamingo.AudioFlamingoNextCaptionerModel",
     "Audio Flamingo Next Think":     "models.audio_flamingo.AudioFlamingoNextThinkModel",

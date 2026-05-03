@@ -319,6 +319,23 @@ services:
     ports: ["8614:8000"]
     healthcheck: *healthcheck
 
+  audio-omni:
+    build:
+      context: .
+      dockerfile: containers/audio_omni/Dockerfile
+    container_name: arena-audio-omni
+    restart: "no"
+    volumes:
+      - .:/workspace
+      - /mnt/kioxia_g2/model_cache/huggingface:/root/.cache/huggingface
+    environment:
+      <<: *env-base
+      MODEL_NAME: "Audio-Omni"
+    ports: ["8616:8000"]
+    healthcheck:
+      <<: *healthcheck
+      start_period: 300s
+
   salmonn-13b:
     build:
       context: .

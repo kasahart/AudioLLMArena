@@ -23,6 +23,7 @@ _DEFAULT_BASE = os.environ.get("ARENA_API_BASE", "http://localhost")
 _HF = "https://huggingface.co"
 
 MODEL_ENDPOINTS: dict[str, str] = {
+    "Audio-Omni":                     f"{_DEFAULT_BASE}:8616",  # ~24 GB
     "MOSS-Audio-4B":                  f"{_DEFAULT_BASE}:8603",  # ~11 GB
     "Qwen2-Audio":                    f"{_DEFAULT_BASE}:8600",  # ~16 GB
     "Gemma-4-E4B":                    f"{_DEFAULT_BASE}:8602",  # ~16 GB
@@ -48,6 +49,7 @@ MODEL_VRAM_GB: dict[str, int] = {
     "Audio Flamingo Next Captioner":  16,
     "Audio Flamingo Next Think":      16,
     "Gemma-4-E4B":                    16,
+    "Audio-Omni":                     24,
     "MOSS-Audio-4B":                  11,
     "MOSS-Audio-8B":                  17,
     "MOSS-Audio-8B-Thinking":         17,
@@ -79,6 +81,7 @@ MODEL_HF_URLS: dict[str, str] = {
     "Qwen3-Omni-Captioner":          f"{_HF}/Qwen/Qwen3-Omni-30B-A3B-Captioner",
     "Qwen3-Omni-Thinking":           f"{_HF}/Qwen/Qwen3-Omni-30B-A3B-Thinking",
     "Nemotron-Nano-Omni-Reasoning":  f"{_HF}/nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+    "Audio-Omni":                    f"{_HF}/HKUSTAudio/Audio-Omni",
 }
 
 
